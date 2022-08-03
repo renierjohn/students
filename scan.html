@@ -20,17 +20,17 @@
     <title>Scan | Malongcay ES | Renify</title>
     
     <!-- Styles -->
+    <link rel="stylesheet" href="https://use.typekit.net/fpk6wtt.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.1/css/bootstrap.min.css" integrity="sha512-Ez0cGzNzHR1tYAv56860NLspgUGuQw16GiOOp/I2LuTmpSK9xDXlgJz3XN4cnpXWDmkNBKXR/VDMTCnAaEooxA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="preconnect" href="https://fonts.gstatic.com/">
-    <link href="./css/css2" rel="stylesheet">
-    <link href="./css/bootstrap.css" rel="stylesheet">
-    <link href="./css/fontawesome-all.css" rel="stylesheet">
-	<link href="./css/styles.css" rel="stylesheet">
+        <link href="./css/styles.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="main.css">
-	
-	<!-- Favicon  -->
+    
+    <!-- Favicon  -->
     <link rel="icon" href="https://renifysite.com/themes/Renify/favicon.ico">
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/9.6.7/firebase-compat.min.js" ></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.1/js/bootstrap.bundle.min.js" integrity="sha512-sH8JPhKJUeA9PWk3eOcOl8U+lfZTgtBXD41q6cO/slwxGHCxKcW45K4oPCUhHG7NMB4mbKEddVmPuTXtpbCbFA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 <body data-spy="scroll" data-target=".fixed-top"><a href="#" class="back-to-top page-scroll" style="display: none;">Back to Top</a>
     <input type="hidden" name="state" value="1234">
@@ -80,35 +80,36 @@
             <div class="row">
                 <div class="col-lg-8 col-md-8">
                     <div class="text-container">
-                        <div class="box">
+                        <div class="box scanner border-red">
                             <canvas id="canvas" hidden></canvas>   
                             <img src="./assets/id.png" class="js-camera main-camera"  alt="">                        
-                            <button class="js-scan" title="">Scan</button>
+                            <button type="button" class="btn btn-primary btn-lg js-scan">SCAN</button>
                         </div>
                     </div> 
                 </div> 
                 <div class="col-lg-4 col-md-4">
                     <div class="text-container">
-                        <div class="box card">
+                        <div class="box card border-red">
                             <div class="row">
-                                <div class="col-sm-3 col-lg-3">
+                                <div class="col-sm-3 col-lg-3 col-3">
                                     <img src="./assets/logo1.jpg" alt="">
                                 </div>
-                                <div class="col-sm-6 col-lg-6 header-id">
+                                <div class="col-sm-6 col-lg-6 col-6 header-id">
                                     <p>Dauin,Negros Oriental</p>
                                     <p>Malongcay Elementary School</p>
                                 </div>
-                                <div class="col-sm-3 col-lg-3">
+                                <div class="col-sm-3 col-lg-3 col-3">
                                     <img src="./assets/logo2.jpg" alt="">
                                 </div>                                                                
                             </div>
                             <div class="row">
-                                <div class="col-sm-6 col-lg-6 grade">
+                                <div class="col-sm-6 col-lg-6 col-6 grade">
                                     <h5>GRADE</h5>
-                                    <h1 class="js-grade">III</h1>
+                                    <h1 class="js-grade"><i class="fa fa-spinner fa-spin js-spinner" aria-hidden="true"></i>III</h1>
                                 </div>
-                                <div class="col-sm-6 col-lg-6">
+                                <div class="col-sm-6 col-lg-6 col-6">
                                     <div class="profile-img ">
+                                        <i class="fa fa-spinner fa-spin js-spinner" aria-hidden="true"></i>
                                         <img src="./assets/id.png" class="js-profile" alt="profile">
                                     </div>
                                 </div>
@@ -116,17 +117,17 @@
 
                             <div class="id-info-wrapper">
                                  <div class="row">
-                                    <div class="col-sm col-lg">
-                                        <p class="js-name">Kidde John Sediego</p>
+                                    <div class="col-sm col-lg col">
+                                        <p class="js-name-id name-id"><i class="fa fa-spinner fa-spin js-spinner" aria-hidden="true"></i>Kidde John Sediego</p>
                                     </div>
                                  </div>
                                  <div class="row">
-                                    <div class="col-sm-8 col-lg-8">
+                                    <div class="col-sm-8 col-lg-8 col-8">
                                         <div class="qr-img js-qr" id="js-qr">
                                             <img src="./assets/qr.png" alt="">
                                         </div>
                                     </div>
-                                    <div class="col-sm-4 col-lg-4">
+                                    <div class="col-sm-4 col-lg-4 col-4">
                                         <h2>SY</h2>
                                         <h2>2022</h2>
                                         <h2>2023</h2>
@@ -141,94 +142,13 @@
     </header>
     <!-- end of header -->
 
-    <!-- Questions -->
-    <div class="accordion-1">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h2 class="h2-heading">Frequent questions</h2>
-                </div> 
-            </div> <!-- end of row -->
-            <div class="row">
-                <div class="col-lg-12">
-
-                    <div class="accordion" id="accordionExample">
-                        <div class="card">
-                            <div class="card-header" id="headingOne">
-                                <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                    How can I contact you and quickly get a quote for my online project?
-                                </button>
-                            </div>
-                            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-                                <div class="card-body">
-                                    The best way to reach me is through the contact form of by messaging me on my social media accounts. For a fast quote make sure your provide many project details
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-header" id="headingTwo">
-                                <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                    Do you create designs from the ground up or you are using themes?
-                                </button>
-                            </div>
-                            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-                                <div class="card-body">
-                                    The best way to reach me is through the contact form of by messaging me on my social media accounts. For a fast quote make sure your provide many project details
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-header" id="headingThree">
-                                <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                    Will I receive any included maintenance or warranty after project delivery?
-                                </button>
-                            </div>
-                            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-                                <div class="card-body">
-                                    The best way to reach me is through the contact form of by messaging me on my social media accounts. For a fast quote make sure your provide many project details
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-header" id="headingFour">
-                                <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                                    If something goes wrong with the project can I have my money back?
-                                </button>
-                            </div>
-                            <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
-                                <div class="card-body">
-                                    The best way to reach me is through the contact form of by messaging me on my social media accounts. For a fast quote make sure your provide many project details
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-header" id="headingFive">
-                                <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                                    What's your preferred method of payment and do you need an advance?
-                                </button>
-                            </div>
-                            <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionExample">
-                                <div class="card-body">
-                                    The best way to reach me is through the contact form of by messaging me on my social media accounts. For a fast quote make sure your provide many project details
-                                </div>
-                            </div>
-                        </div>
-                    </div> <!-- end of accordion -->
-
-                </div> 
-            </div> <!-- end of row -->
-        </div> 
-    </div> <!-- end of accordion-1 -->
-    <!-- end of questions -->
-
-
     <!-- Contact -->
     <div id="contact" class="form-1 bg-gray">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
                     <h2>Contact details</h2>
-                    <p class="p-heading">For any type of online project please don't hesitate to get in touch with me. The fastest way is to send me your message using the following email <a class="blue no-line" href="https://technext.github.io/mark/index.html#your-link">contact@domain.com</a></p>
+                    <p class="p-heading">For any type of online project please don't hesitate to get in touch with me. The fastest way is to send me your message using the following email <a class="blue no-line" href="mailto:support@renifysite.com">support@renifysite.com</a></p>
                 </div> 
             </div> <!-- end of row -->
             <div class="row">

@@ -6,9 +6,11 @@
     var canvas          = canvasElement.getContext("2d");
     var detect          = $('input[name="state"]');
 
+   $('.js-spinner').hide() 
    $('.js-scan').click(function(){
     //  $('#js-qr').html(' '); 
     // new QRCode(document.getElementById('js-qr'),String(Math.random()));
+    setBorderError();
     $('.js-scan').hide();
     startWebcam();
    });
@@ -34,8 +36,8 @@
       // loadingMessage.innerText = "⌛ Loading video..."
       if (video.readyState === video.HAVE_ENOUGH_DATA) {
           canvasElement.hidden   = false;
-          canvasElement.height = 100;
-          canvasElement.width  = 100;
+          canvasElement.height = 400;
+          canvasElement.width  = 400;
 
         canvas.drawImage(video, 0, 0, canvasElement.width, canvasElement.height);
         
@@ -59,11 +61,13 @@
           video.hidden = true;
           detect[0].value = '0';
           console.log(code.data);
-          $('#canvas').attr('width',100);
-          $('#canvas').attr('height',100);
+          $('#canvas').attr('width',400);
+          $('#canvas').attr('height',400);
 
           $('.js-camera ').show();
           $('.js-scan').show();
+          setBorderOk();
+          setTimer();
           // requestUSer(code.data);
         } 
       }
@@ -71,6 +75,23 @@
       if(detect[0].value == '1'){
         requestAnimationFrame(render);
       }
+    }
+
+    function setBorderOk(){
+        $('.box').css('border', '5px solid green');
+    }
+
+    function setBorderError(){
+        $('.box').css('border', '1px solid red');
+    }
+
+    function setTimer(){
+        setTimeout(function(){
+            console.log('init')
+            setBorderError();
+            $('.js-scan').hide();
+            startWebcam();
+        },3000)
     }
 
 })(jQuery);    
