@@ -1,0 +1,112 @@
+body{
+	scroll-behavior: smooth;
+}
+
+h2{
+	font-weight: normal;
+	font-size: 1rem;
+}
+
+.navbar .logo-image img {
+    width: 100%;
+		height: 36px;
+}
+
+/* NAV TEXT */
+.navbar .nav-item .nav-link {
+  color: #348a81;
+  text-shadow: 3px 0px #acc9b6;
+  letter-spacing: 3px;
+  font-size: large;
+}
+
+
+#header .h1-large{
+	color: #348a81 ;
+  text-shadow: 3px 2px #ffffff;
+}
+
+#header .btn-solid-lg{
+	border: 1px solid #fff;
+	background-color: #348a81;
+	border-radius: 5px;
+}
+
+.header{
+	height: 100vh;
+}
+
+/* CONTACT TXT in BANNER */
+.header .btn-outline-lg {
+  color: #009688;
+  text-shadow: 1px 1px #ffffff;
+}
+
+.top-page-banner-img{
+	background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url('./assets/student3.jpg') center center no-repeat;	
+	text-align: center;
+	background-size: cover;
+}
+
+.scan-banner-img{
+	background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url('./assets/scan-bg2.jpg') center center no-repeat;
+	text-align: center;
+	background-size: cover;
+}
+
+/* SCANNER PAGE  */
+.box{
+	border: 1px solid red;
+	/*height: 50vh;*/
+}
+
+.box canvas{
+	width: 100%;
+	height: 50vh;
+}
+
+.box img{
+	width: 100%;
+}
+
+.box  .header-id p{
+	font-size: 10px;
+	margin: 0;
+	padding: 0;
+}
+
+.box .grade{
+	padding-top: 2rem;
+  padding-left: 4rem;
+}
+
+.box .profile-img{
+	border: 1px solid black;
+	position: relative;
+  right: 0.5rem;
+}
+
+.box .qr-img{
+  position: relative;
+  left: 0.5rem;
+  bottom: 0.5rem;
+}
+
+.box .id-info-wrapper{
+	/*background-color: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), #593e89;*/
+	 background-image: linear-gradient(to bottom, #593e89 , white);
+}
+
+.box .id-info-wrapper p{
+	color: white;
+}
+
+.box img.main-camera{
+	width: 70%;
+}
+
+@media (min-width: 768px) {
+	.box .grade{
+		padding: 0;
+	}
+}
