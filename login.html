@@ -17,23 +17,27 @@
 	<meta name="twitter:card" content="summary_large_image"> <!-- to have large image post format in Twitter -->
 
     <!-- Webpage Title -->
-    <title>Malongcay ES | Renify</title>
+    <title>Login | Malongcay ES | Renify</title>
     
     <!-- Styles -->
+    <link rel="stylesheet" href="https://use.typekit.net/fpk6wtt.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.1/css/bootstrap.min.css" integrity="sha512-Ez0cGzNzHR1tYAv56860NLspgUGuQw16GiOOp/I2LuTmpSK9xDXlgJz3XN4cnpXWDmkNBKXR/VDMTCnAaEooxA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="preconnect" href="https://fonts.gstatic.com/">
     <link href="./css/bootstrap.css" rel="stylesheet">
-	<link href="./css/styles.css?v1.1" rel="stylesheet">
+		<link href="./css/styles.css?v1.1" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="./custom/main.css">
+    <link rel="stylesheet" type="text/css" href="./custom/login.css">
 	
 	<!-- Favicon  -->
     <link rel="icon" href="https://renifysite.com/themes/Renify/favicon.ico">
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.1/js/bootstrap.min.js" integrity="sha512-EKWWs1ZcA2ZY9lbLISPz8aGR2+L7JVYqBAYTq5AXgBkSjRSuQEGqWx8R1zAX16KdXPaCjOCaKE8MCpU0wcHlHA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/9.6.7/firebase-compat.min.js" ></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.1/js/bootstrap.bundle.min.js" integrity="sha512-sH8JPhKJUeA9PWk3eOcOl8U+lfZTgtBXD41q6cO/slwxGHCxKcW45K4oPCUhHG7NMB4mbKEddVmPuTXtpbCbFA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+   
 </head>
 <body data-spy="scroll" data-target=".fixed-top"><a href="#" class="back-to-top page-scroll" style="display: none;">Back to Top</a>
-    
+    <input type="hidden" name="state" value="1234">
+    <!-- Navigation -->
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg fixed-top navbar-dark">
         <div class="container">
@@ -74,22 +78,70 @@
     <!-- end of navigation -->
 
 
-    <!-- MAIN BODY -->
-    <header id="header" class="header top-page-banner-img">
-        <div class="container">
-            <div class="row">
+    <section class="h-100 gradient-form" style="background-color: #eee;">
+      <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+          <div class="col-xl-10">
+            <div class="card rounded-3 text-black">
+              <div class="row g-0">
                 <div class="col-lg-6">
-                    <div class="text-container">
-                        <h1 class="h1-large">Welcome to Student Portal</h1>
-                        <a class="btn-solid-lg page-scroll" href="scan.html">Scan Now</a>
-                        <a class="btn-solid-lg page-scroll" href="login.html">I'm a Teacher</a>
-                        <a class="btn-outline-lg page-scroll" href=" https://m.me/student.portal.renify"><i class="fas fa-user"></i>Contact Me</a>
-                    </div> <!-- end of text-container -->
-                </div> <!-- end of col -->
-            </div> <!-- end of row -->
-        </div> <!-- end of container -->
-    </header> <!-- end of header -->
-    <!-- end of header -->
+                  <div class="card-body p-md-5 mx-md-4">
+
+                    <div class="text-center">
+                      <img src="./assets/logo1.jpg"
+                        style="width: 185px;" alt="logo">
+                      <h4 class="mt-1 mb-5 pb-1">Student Portal</h4>
+                    </div>
+
+                    <form>
+                        <!-- MESSAGE DISPLAY -->
+                        <div class="alert alert-danger js-error-alert" role="alert" style="display: none;">
+                            Sorry . Please Try Again
+                        </div>
+                        <div class="alert alert-success js-success-alert" role="alert" style="display: none;">
+                            Success Login
+                        </div>
+                        <div class="progress js-progress" style="display: none;">
+                            <div id="theBar" class="progress-bar progress-bar-info progress-bar-striped active " role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
+                        </div>
+                        <!-- END MESSAGE DISPLAY -->
+
+                      <p>Please login to your account</p>
+
+                      <div class="form-outline mb-4">
+                        <input type="email" id="form2Example11" class="form-control js-username"
+                          placeholder="username" />
+                        <label class="form-label" for="form2Example11">Username</label>
+                      </div>
+
+                      <div class="form-outline mb-4">
+                        <input type="password" id="form2Example22" class="form-control js-password" />
+                        <label class="form-label" for="form2Example22">Password</label>
+                      </div>
+
+                      <div class="text-center pt-1 mb-5 pb-1">
+                        <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3 js-submit" type="button">Login</button>
+                        <a class="text-muted" href="https://renifysite.com/user/password">Forgot password?</a>
+                      </div>
+
+                    </form>
+
+                  </div>
+                </div>
+                <div class="col-lg-6 d-flex align-items-center gradient-custom-2">
+                  <div class="text-white px-3 py-4 p-md-5 mx-md-4">
+                    <h4 class="mb-4">Welcome To Student Portal</h4>
+                    <p class="small mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                      exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- Contact -->
     <div id="contact" class="form-1 bg-gray">
@@ -98,7 +150,7 @@
                 <div class="col-lg-12">
                     <h2>Contact details</h2>
                     <p class="p-heading">For any type of online project please don't hesitate to get in touch with me. The fastest way is to send me your message using the following email <a class="blue no-line" href="mailto:support@renifysite.com">support@renifysite.com</a></p>
-                </div> <!-- end of col -->
+                </div> 
             </div> <!-- end of row -->
             <div class="row">
                 <div class="col-lg-12">
@@ -106,26 +158,26 @@
                     <!-- Contact Form -->
                     <form id="contactForm">
                         <div class="form-group">
-                            <input type="text" class="form-control-input" id="cname" required="">
-                            <label class="label-control" for="cname">Name</label>
+                            <input type="text" class="form-control-input js-username" id="cname" required="">
+                            <label class="label-control js-contact-name" for="cname">Name</label>
                         </div>
                         <div class="form-group">
-                            <input type="email" class="form-control-input" id="cemail" required="">
-                            <label class="label-control" for="cemail">Email</label>
+                            <input type="email" class="form-control-input js-password" id="cemail" required="">
+                            <label class="label-control js-contact-mail" for="cemail">Email</label>
                         </div>
                         <div class="form-group">
                             <textarea class="form-control-textarea" id="cmessage" required=""></textarea>
-                            <label class="label-control" for="cmessage">Project details</label>
+                            <label class="label-control js-contact-message" for="cmessage">Project details</label>
                         </div>
                         <div class="form-group">
-                            <button type="submit" class="form-control-submit-button">Submit</button>
+                            <button type="submit" class="form-control-submit-button js-contact-submit">Submit</button>
                         </div>
                     </form>
                     <!-- end of contact form -->
 
-                </div> <!-- end of col -->
+                </div> 
             </div> <!-- end of row -->
-        </div> <!-- end of container -->
+        </div> 
     </div> <!-- end of form-1 -->  
     <!-- end of contact -->
 
@@ -167,9 +219,9 @@
                             </a>
                         </span>
                     </div> <!-- end of social-container -->
-                </div> <!-- end of col -->
+                </div> 
             </div> <!-- end of row -->
-        </div> <!-- end of container -->
+        </div> 
     </div> <!-- end of footer -->  
     <!-- end of footer -->
 
@@ -180,9 +232,9 @@
             <div class="row">
                 <div class="col-lg-12">
                     <p class="p-small">Copyright 2022 © <a class="no-line" href="https://renifysite.com">Renify</a></p>
-                </div> <!-- end of col -->
+                </div> 
             </div> <!-- enf of row -->
-        </div> <!-- end of container -->
+        </div> 
         
     </div> <!-- end of copyright --> 
     <!-- end of copyright -->
@@ -193,6 +245,8 @@
     <script src="./js/bootstrap.min.js"></script> <!-- Bootstrap framework -->
     <script src="./js/jquery.easing.min.js"></script> <!-- jQuery Easing for smooth scrolling between anchors -->
     <script src="./js/scripts.js"></script> <!-- Custom scripts -->
+    <script src="./js/qr_encoder.js"></script> <!-- Custom scripts -->
+    <script src="./js/qr_decoder.js"></script> <!-- Custom scripts -->
     <script src="./custom/main.js"></script>
-    
+    <script src="./custom/login.js"></script>
 </body></html>

@@ -11,6 +11,6 @@
       $('.js-name-id').html(name);
       $('.js-grade-id').html(grade);
       console.log(name,grade)
-    })
+    });
 
 })(jQuery);    

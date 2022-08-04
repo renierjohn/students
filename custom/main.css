@@ -45,21 +45,22 @@ h2{
 }
 
 .top-page-banner-img{
-	background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url('./assets/student3.jpg') center center no-repeat;	
+	background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url('../assets/student3.jpg') center center no-repeat;	
 	text-align: center;
 	background-size: cover;
 }
 
 .scan-banner-img{
-	background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url('./assets/scan-bg2.jpg') center center no-repeat;
+	background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url('../assets/scan-bg2.jpg') center center no-repeat;
 	text-align: center;
 	background-size: cover;
 }
 
 .list-banner-img{
-	background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url('./assets/scan-bg.jpg') center center no-repeat;
+	background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url('../assets/scan-bg.jpg') center center no-repeat;
 	text-align: center;
 	background-size: cover;	
+	margin-top: 0;
 }
 
 /* SCANNER PAGE  */
@@ -139,5 +140,9 @@ h2{
 	.header{
 		height: auto;
 		padding-top: 0;
+	}
+
+	.list-banner-img{
+		margin-top: 3rem;
 	}
 }
