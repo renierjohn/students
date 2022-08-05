@@ -25,14 +25,52 @@ fetch('http://renify.local/api/v1/auth/token', {
 ACCESS USING TOKEn
 
 const h = new Headers({
-	"X-AUTH-TOKEN": "4fbf19f772a6fb7f66f301eda84384d2fc6c3d03a3c033a18f782848e2b4b4b9",
+	"X-AUTH-TOKEN": "5ec48cb53019a5f83e2b32239fc1145705231544ab7ebd02ec0afbc10dd44de4",
   "REQUEST-ID":1
+  "method":"GET"
 });
 
-fetch('http://renify.local/api/dashboard/user',{
-  method:'GET',
-  headers:h
-})
+
+headers = {
+  "token": "5ec48cb53019a5f83e2b32239fc1145705231544ab7ebd02ec0afbc10dd44de4",
+  "uid":1,
+  "method":"GET"
+}
+
+fetch('https://renifysite.com/api/v1/student/recent',{headers})
+
+
+fetch('http://renify.local/api/dashboard/user',{headers})
 
 
 
+const url = "https://renifysite.com/api/v1/student/recent"
+const token = "5ec48cb53019a5f83e2b32239fc1145705231544ab7ebd02ec0afbc10dd44de4"
+const uid = 1
+
+const xhr = new XMLHttpRequest();
+xhr.open('POST', url);
+xhr.setRequestHeader('token',token);
+xhr.setRequestHeader('uid',uid);
+xhr.setRequestHeader('Content-Type', 'application/json');
+xhr.send()
+xhr.onreadystatechange = handler;
+xhr.send('<person><name>Arun</name></person>');
+
+
+// CORS issue on local
+set to false -> exposedHeaders: false  -> services.yml
+
+// CORS issue on cloudflare
+enable 'Access-Control-Allow-Headers': '*'
+
+issue:
+Cache related : transition roles to teacher
+
+
+
+schedule daily clear rest api cache
+/api/v1/student/delete/cache
+
+
+OPEN CAM LOCALHOST : url should have "localhost"

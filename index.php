@@ -1,6 +1,6 @@
 <?php 
   if($_SERVER['REQUEST_URI'] == '/'){
-    echo file_get_contents('index.html');
+      echo render('index.html');
   }
   else{
     $path = explode('?',$_SERVER['REQUEST_URI']);
@@ -10,11 +10,14 @@
     $folder = explode('/',$path)[1];
 
     if($folder == 'js'  || $folder == 'css' || $folder == 'assets' || $folder == 'custom'){
+      if($folder == 'custom' || $folder == 'js'){
+       header("Content-Type:application/javascript");  
+      }
       echo  file_get_contents($base_path_theme.$path); 
     }
 
     if(str_contains($folder,'.html')){
-      echo  file_get_contents($base_path_theme.$path); 
+      echo  render($base_path_theme.$path); 
     }
 
     if($folder == 'api'){
@@ -28,4 +31,10 @@
     }
 
   }
+
+  function render($url){
+    $content = file_get_contents($url);
+     return str_replace('<!DOCTYPE html>', '', $content);
+  }
+
 ?>

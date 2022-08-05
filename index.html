@@ -24,8 +24,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="preconnect" href="https://fonts.gstatic.com/">
     <link href="./css/bootstrap.css" rel="stylesheet">
-	<link href="./css/styles.css?v1.1" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="./custom/main.css">
+	<link href="./css/styles.css?v1.2" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="./custom/main.css?v1.1">
 	
 	<!-- Favicon  -->
     <link rel="icon" href="https://renifysite.com/themes/Renify/favicon.ico">
@@ -52,6 +52,9 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link page-scroll" href="https://m.me/student.portal.renify" target="_blank">Contact<i class="fa fa-external-link"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link page-scroll js-logoff" href="#" target="_blank" style="display: none;"><i class="fa fa-power-off"></i></a>
                     </li>
                 </ul>
                 <span class="nav-item social-icons">
@@ -82,7 +85,8 @@
                     <div class="text-container">
                         <h1 class="h1-large">Welcome to Student Portal</h1>
                         <a class="btn-solid-lg page-scroll" href="scan.html">Scan Now</a>
-                        <a class="btn-solid-lg page-scroll" href="login.html">I'm a Teacher</a>
+                        <a class="btn-solid-lg page-scroll js-login-btn" href="login.html">I'm a Teacher</a>
+
                         <a class="btn-outline-lg page-scroll" href=" https://m.me/student.portal.renify"><i class="fas fa-user"></i>Contact Me</a>
                     </div> <!-- end of text-container -->
                 </div> <!-- end of col -->
@@ -187,12 +191,32 @@
     </div> <!-- end of copyright --> 
     <!-- end of copyright -->
     
-    	
+    <!-- MODAL -->
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="loginModalLabel">Congrats</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Your'e Can Proceed to Scan the Students now 
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <a href="scan.html" class="btn btn-primary">Scan</a>
+      </div>
+    </div>
+  </div>
+</div>
+
     <!-- Scripts -->
     <script src="./js/jquery.min.js"></script> <!-- jQuery for Bootstrap's JavaScript plugins -->
     <script src="./js/bootstrap.min.js"></script> <!-- Bootstrap framework -->
     <script src="./js/jquery.easing.min.js"></script> <!-- jQuery Easing for smooth scrolling between anchors -->
     <script src="./js/scripts.js"></script> <!-- Custom scripts -->
-    <script src="./custom/main.js"></script>
+    <script type="module" src="./custom/common.js?v1.1"></script>
     
 </body></html>

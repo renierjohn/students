@@ -14,8 +14,8 @@ h2{
 
 /* NAV TEXT */
 .navbar .nav-item .nav-link {
-  color: #348a81;
-  text-shadow: 3px 0px #acc9b6;
+  color: #0b36a8;
+  text-shadow: 1px 0px #acc9b6;
   letter-spacing: 3px;
   font-size: large;
 }
@@ -120,6 +120,10 @@ h2{
 
 .box .name-id{
 	font-size: large;
+}
+
+.alert-message{
+	/*margin-top: 3rem;*/
 }
 
 @media (max-width: 768px) {
