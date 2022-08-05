@@ -25,7 +25,7 @@ const lib = {
 					headers = {};
 				}
 
-				const url  = `${protocol}//${backend_host}/rest/api/v1/student/${endpoint}`;
+				const url  = `${protocol}//${backend_host}/api/v1/student/${endpoint}`;
 
 		    const data = await fetch(url, {headers})
         .then((response) => response.json())
