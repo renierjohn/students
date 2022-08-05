@@ -16,8 +16,8 @@ const lib = {
 				}
 
 				var headers = {
-				  'X-AUTH-TOKEN' : token ? token : ' ',
-				  'REQUEST-ID'   : uid ? uid : ' ',
+				  'token' : token ? token : ' ',
+				  'uid'   : uid ? uid : ' ',
 				  method         : 'GET'
 				}
 
