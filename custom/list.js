@@ -12,7 +12,7 @@ $('.js-more').click(async (e)=>{
     console.log(limit,start)
     var s       = parseInt(start) + parseInt(limit); 
     $(this).attr('start',s);
-    const data  = await lib.query(`/api/student/list?l=${limit}&s=${s}`);
+    const data  = await lib.fetch(`list?l=${limit}&s=${s}`,false);
 
     if(data.more_flag == false){
         $('.js-more').hide();
