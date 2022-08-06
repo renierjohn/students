@@ -1,8 +1,10 @@
 $ = jQuery;
 import lib from "./lib.js";
 
-renderRecent();
-renderLists();
+$(document).ready(()=>{
+  renderRecent();
+  // renderLists();
+})
 
 $('.js-more').click(async (e)=>{
   $('.js-spinner').show();
@@ -66,8 +68,6 @@ async function renderFilteredLists(){
     query = `${query}&n=${search}`; 
   }
 
-console.log(query)
-
   const data = await lib.query(`/api/student/list?${query}`);
   $('.js-more').show();
   $('.js-list-all-wrapper').html('');
@@ -110,6 +110,9 @@ async function renderRecent(){
   if(data.status == false){ // cant access when logoff
     return;
   }
+  global_cache = data.data_flag;
+  $('.js-cache').val(JSON.stringify(data.data_flag));
+
   var template = '';
   data.data.forEach((dat,idx) => {
     var elapse = calculateElapse(dat.ts);
@@ -138,6 +141,7 @@ async function renderRecent(){
   $('.js-list-wrapper').html(' ');
   $('.js-list-wrapper').html(template);
   init();
+  renderLists();
 }
 
 async function renderLists(){
@@ -170,15 +174,17 @@ function render(data){
               `;
    };
 
-   data.students.forEach((dat,idx) => {
+    data.students.forEach((dat,idx) => {
+    var style   = detectVisibleFromCache(dat.id) ? 'border:1px solid green;' : '';
+    var checked = style.length > 0 ? `<i class="fa-solid fa-check"></i>` : '';
     template += `
         <div class="col-md-4 js-list-detail" style="display:none">
-          <div class="card mb-4 box-shadow">
+          <div class="card mb-4 box-shadow" style="${style}">
             <input type="hidden" class="js-uid" value="${dat.id}" >
             <input type="hidden" class="js-qr-detail" value="${dat.hash}" >
             <img class="card-img-top" src="${lib.protocol}//${lib.backend_host}/${dat.image}" data-src="" alt="Student Image">
             <div class="card-body">
-              <p class="card-text">${dat.name}</p>
+              <p class="card-text">${dat.name} ${checked}</p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
 
@@ -191,6 +197,26 @@ function render(data){
     `;
   });
   return template
+}
+
+function detectVisibleFromCache(uid){
+  const cache      = $('.js-cache').val();
+  if(cache.length == 0){
+    return false;
+  }
+  const cache_json = JSON.parse(cache);
+  var flag = false;
+  
+  if(cache_json.length == 0){
+    return flag;
+  }
+
+  cache_json.forEach((json) => {
+   if(json.uid == uid){
+     flag = true;
+   } 
+  });
+  return flag;
 }
 
 function calculateElapse(ts){
