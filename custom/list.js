@@ -50,7 +50,7 @@ function init(){
 }
 
 async function renderRecent(){
-  const data = await lib.fetch('recent',false);
+  const data = await lib.fetch('recents',false);
   if(data.status == false){
     return;
   }
