@@ -106,7 +106,7 @@ function init(){
 }
 
 async function renderRecent(){
-  const data = await lib.query('/api/student/list');
+  const data = await lib.query('/api/student/recents');
   if(data.status == false){ // cant access when logoff
     return;
   }
