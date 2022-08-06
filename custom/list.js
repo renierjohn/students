@@ -145,7 +145,7 @@ async function renderRecent(){
 }
 
 async function renderLists(){
-  const json = await lib.query(`/sites/default/files/public/students_flag/${lib.currentDate()}.json`);
+  // const json = await lib.query(`/sites/default/files/public/students_flag/${lib.currentDate()}.json`);
   const data = await lib.query('/api/student/list');
  
   $('.js-more').attr('limit',data.limit);
