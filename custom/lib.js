@@ -1,4 +1,5 @@
-const backend_host  = 'renifysite.com';
+const cloudflare_host = 'rest-api.renier.workers.dev'// 'renify.local/rest';//'rest-api.renier.workers.dev';
+const backend_host  =   'renifysite.com'; //'renify.local'//'renifysite.com';
 const host          = document.location.hostname;
 const protocol 			= document.location.protocol;
 const port          = document.location.port ? document.location.port: '80';
@@ -18,14 +19,14 @@ const lib = {
 				var headers = {
 				  'token' : token ? token : ' ',
 				  'uid'   : uid ? uid : ' ',
-				  method         : 'GET'
+				  method  : 'GET'
 				}
 
 				if(hasHeader == false){
 					headers = {};
 				}
 
-				const url  = `https://rest-api.renier.workers.dev/api/v1/student/${endpoint}`;
+				const url  = `${protocol}//${cloudflare_host}/api/v1/student/${endpoint}`;
 
 		    const data = await fetch(url, {headers})
         .then((response) => response.json())
@@ -84,7 +85,7 @@ const lib = {
 		  var mo     = date.getMonth();
 		  var day    = date.getDate();
 		  if(mo < 10){
-		  	mo = `0${String(mo)}`;
+		  	mo = `0${String(mo + 1)}`;
 		  }
 		  if(day < 10){
 		  	day = `0${String(day)}`;
