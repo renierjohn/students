@@ -78,6 +78,19 @@ const lib = {
       }}, 50);
     
 	},
+	currentDate:function(){
+		  const date = new Date();
+		  const year = date.getFullYear();
+		  var mo     = date.getMonth();
+		  var day    = date.getDate();
+		  if(mo < 10){
+		  	mo = `0${String(mo)}`;
+		  }
+		  if(day < 10){
+		  	day = `0${String(day)}`;
+		  }
+		  return `${String(year)}_${mo}_${day}`;
+	},
 	host: host,
 	port: port,
 	protocol:protocol,
