@@ -12,7 +12,7 @@ $('.js-more').click(async (e)=>{
     console.log(limit,start)
     var s       = parseInt(start) + parseInt(limit); 
     $(this).attr('start',s);
-    const data  = await lib.query(`/api/student/list?l=${limit}&s=${s}`,false);
+    const data  = await lib.query(`/api/student/list?l=${limit}&s=${s}`);
 
     if(data.more_flag == false){
         $('.js-more').hide();
@@ -50,7 +50,7 @@ function init(){
 }
 
 async function renderRecent(){
-  const data = await lib.fetch('recents',false);
+  const data = await lib.query('/api/student/recents');
   if(data.status == false){
     return;
   }
