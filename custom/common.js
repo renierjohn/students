@@ -6,7 +6,7 @@ checkLoginStatus();
 $('.js-logoff').click(function(e){
     e.preventDefault();
     lib.store('','');
-    document.location.href = `${lib.protocol}//${lib.host}:${lib.port}/index.html`;
+    document.location.href = `${lib.protocol}//${lib.host}/index.html`;
 });
 
 async function checkLoginStatus(){
@@ -21,7 +21,7 @@ async function checkLoginStatus(){
 
     if(data.status == false){
         if(path.startsWith('/scan')){
-            const redirect_url = `${lib.protocol}//${lib.host}:${lib.port}/index.html`;
+            const redirect_url = `${lib.protocol}//${lib.host}/index.html`;
             var width = $(document).width();
             if(width < 500){
                 $('.js-alert-message').css('margin-top','3rem')

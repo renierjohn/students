@@ -65,7 +65,7 @@ async function login(){
     }
 
     lib.store(data.token,data.userId);
-    const r_url = `${lib.protocol}//${lib.host}:${lib.port}/scan.html`;
+    const r_url = `${lib.protocol}//${lib.host}/scan.html`;
     const el    = $('.js-progress');
     $('.js-success-alert').fadeIn(500);
     lib.countdown(el,r_url);
