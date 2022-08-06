@@ -110,7 +110,7 @@ async function renderRecent(){
   if(data.status == false){ // cant access when logoff
     return;
   }
-  global_cache = data.data_flag;
+
   $('.js-cache').val(JSON.stringify(data.data_flag));
 
   var template = '';
