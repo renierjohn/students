@@ -1,7 +1,9 @@
 $ = jQuery;
-import lib from "./lib.js";
+import lib from "./lib.js?v=1.1";
 
-checkLoginStatus();
+$(document).ready(()=>{
+  checkLoginStatus();
+})
 
 $('.js-logoff').click(function(e){
     e.preventDefault();
@@ -40,3 +42,6 @@ function setButtonAuth(){
     $('.js-login-btn').attr('data-toggle','modal');
 }
 
+export default {
+    lib
+}

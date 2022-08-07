@@ -74,3 +74,8 @@ schedule daily clear rest api cache
 
 
 OPEN CAM LOCALHOST : url should have "localhost"
+
+
+
+Alter
+AccessTokenProvider.php

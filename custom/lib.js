@@ -1,13 +1,40 @@
-const cloudflare_host = 'rest-api.renier.workers.dev'// 'renify.local/rest';//'rest-api.renier.workers.dev';
-const backend_host  =   'renifysite.com'; //'renify.local'//'renifysite.com';
-const host          = document.location.hostname;
-const protocol 			= document.location.protocol;
-const port          = document.location.port ? document.location.port: '80';
+// const cloudflare_host =  'renify.local/rest';//'rest-api.renier.workers.dev';
+// const backend_host  =   'renify.local'//'renifysite.com';
+// const host          = document.location.hostname;
+// const protocol 			= document.location.protocol;
+// const port          = document.location.port ? document.location.port: '80';
+
 const token         = localStorage.token;
 const uid           = localStorage.uid;
 
-const token_header  = 'X-AUTH-TOKEN'; // prod -> token | dev -> X-AUTH-TOKEN
-const uid_header    = 'REQUEST-ID';   // prod -> uid   | dev -> REQUEST-ID
+const CONFIG = {
+	prod:{
+		headers :{
+				  'token' : token ? token : ' ',
+				  'uid'   : uid ? uid : ' ',
+				  method  : 'GET'
+				},
+		cloudflare_host: 'rest-api.renier.workers.dev',
+		backend_host   : 'renifysite.com',
+		host           : 'student.renifysite.com',
+		protocol       : 'https:',
+		port           : 80
+	},
+	dev:{
+		headers :{
+				  'X-AUTH-TOKEN' : token ? token : '',
+				  'REQUEST-ID'   : uid ? uid : 0,
+				  method         : 'GET'
+				},
+		cloudflare_host: 'renify.local/rest',
+		backend_host   : 'renify.local',
+		host           : 'localhost:8080',
+		protocol       : 'http:',
+		port           :  8080
+	}
+}
+
+const ENV = CONFIG.prod;
 
 const lib = {
 	fetch: async function(endpoint,hasHeader = true){
@@ -16,17 +43,13 @@ const lib = {
 					return {status:false};
 				}
 
-				var headers = {
-				  'token' : token ? token : ' ',
-				  'uid'   : uid ? uid : ' ',
-				  method  : 'GET'
-				}
+				var headers = ENV.headers
 
 				if(hasHeader == false){
 					headers = {};
 				}
 
-				const url  = `${protocol}//${cloudflare_host}/api/v1/student/${endpoint}`;
+				const url  = `${ENV.protocol}//${ENV.cloudflare_host}/api/v1/student/${endpoint}`;
 
 		    const data = await fetch(url, {headers})
         .then((response) => response.json())
@@ -38,7 +61,7 @@ const lib = {
         return data;
 	},
 	auth: async function(uname,pass){
-				const url  = `${protocol}//${backend_host}/api/v1/auth/token`;
+				const url  = `${ENV.protocol}//${ENV.backend_host}/api/v1/auth/token`;
 		    const data = await fetch(url, {
 												 method : "POST",
 											   body   : JSON.stringify({login:uname,password:pass})
@@ -52,7 +75,7 @@ const lib = {
         return data;
 	},
 	query: async function(endpoint){
-				const url  = `${protocol}//${backend_host}${endpoint}`;
+				const url  = `${ENV.protocol}//${ENV.backend_host}${endpoint}`;
 		    const data = await fetch(url)
         .then((response) => response.json())
         .then((result) => {
@@ -92,10 +115,15 @@ const lib = {
 		  }
 		  return `${String(year)}_${mo}_${day}`;
 	},
-	host: host,
-	port: port,
-	protocol:protocol,
-	backend_host:backend_host
+	calculateElapse:function(ts){
+		var current_t =  String(Date.now()).substr(0,10);
+	  var diff      = (parseFloat(current_t) - ts)/60;
+	  return diff.toFixed(0);
+	},
+	host: ENV.host,
+	port: ENV.port,
+	protocol:ENV.protocol,
+	backend_host:ENV.backend_host
 }
 
 export default lib;

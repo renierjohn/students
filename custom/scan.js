@@ -1,10 +1,15 @@
 $ = jQuery;
-import lib from "./lib.js";
+import library   from "./common.js?v=1.1";
+const lib = library.lib;
 
 var video           = document.createElement("video");
 var canvasElement   = document.getElementById("canvas");
 var canvas          = canvasElement.getContext("2d");
 var detect          = $('input[name="state"]');
+
+$(document).ready(()=>{
+   init();
+})
 
 $('.js-spinner').hide() 
 $('.js-scan').click(function(){
@@ -80,7 +85,7 @@ function setBorderError(){
 
 function setTimer(){
     setTimeout(function(){
-        console.log('init')
+        console.log('Reset Cam')
         setBorderError();
         $('.js-scan').hide();
         startWebcam();
@@ -111,4 +116,21 @@ async function requestUSer(qr){
     $('.js-name-id').html(data.data.name);
     $('.js-grade').html(data.data.level);
     $('.js-profile').attr('src',`${lib.protocol}//${lib.backend_host}/${data.data.image}`);
+    saveToRealTimeDatabase(data);
 }    
+
+
+async function init(){
+  const data = await lib.fetch('firebase');
+  console.log(data);
+  firebase.initializeApp(data.data);
+}
+
+function saveToRealTimeDatabase(data) {
+     const db = firebase.database();
+     db.ref(`/students/${lib.currentDate()}`).update(data.data);
+}
+
+function detectIfAlreadyExists(){
+  
+}

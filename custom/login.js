@@ -1,5 +1,6 @@
 $ = jQuery;
-import lib from "./lib.js";
+import library   from "./common.js?v=1.1";
+const  lib = library.lib;
 
 $('.js-submit').click(function(){
 
