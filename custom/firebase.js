@@ -10,9 +10,10 @@ $(document).ready(()=>{
 
 async function init(){
 	const data = await lib.fetch('firebase');
+	console.log(data)
 	firebase.initializeApp(data.data);
 	const firestore = firebase.firestore();
-  const db        = firebase.database();
+  const db         = firebase.database();
 
   db.ref(`/students/${lib.currentDate()}`).on('value', (snapshot) => {
   		var data = {}
@@ -21,12 +22,16 @@ async function init(){
 		    var val = childSnapshot.val();
 		    data[key] = val;
 		  });
-			
+
+			if(data.uid == undefined){
+				return;
+			}
+
 			setFlag(data)
 			if(!isExists(data)){
 				renderRecent(data);
 			}
-
+			// db.ref(`/students/${lib.currentDate()}`).remove()
   });
 }
 
@@ -55,4 +60,8 @@ function setFlag(data){
 	}
 	element.parent().css('border','1px solid green');
 	element.parent().find('.card-text').prepend('<i class="fa-solid fa-check"></i>');
+}
+
+function resetFirebaseDB(){
+
 }

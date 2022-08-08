@@ -122,15 +122,11 @@ async function requestUSer(qr){
 
 async function init(){
   const data = await lib.fetch('firebase');
-  console.log(data);
+  console.log(data.data);
   firebase.initializeApp(data.data);
 }
 
 function saveToRealTimeDatabase(data) {
      const db = firebase.database();
      db.ref(`/students/${lib.currentDate()}`).update(data.data);
-}
-
-function detectIfAlreadyExists(){
-  
 }
