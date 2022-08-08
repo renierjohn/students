@@ -30,6 +30,7 @@ async function init(){
 			setFlag(data)
 			if(!isExists(data)){
 				renderRecent(data);
+				appendCache(data);
 			}
 			// db.ref(`/students/${lib.currentDate()}`).remove()
   });
@@ -60,6 +61,13 @@ function setFlag(data){
 	}
 	element.parent().css('border','1px solid green');
 	element.parent().find('.card-text').prepend('<i class="fa-solid fa-check"></i>');
+}
+
+function appendCache(data){
+	const json = $('.js-cache').val();
+	const arr  = JSON.parse(json);
+	arr.push(data);
+	$('.js-cache').val(JSON.stringify(arr));
 }
 
 function resetFirebaseDB(){
